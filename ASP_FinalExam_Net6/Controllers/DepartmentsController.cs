@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASP_FinalExam_Net6.Data;
 using ASP_FinalExam_Net6.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASP_FinalExam_Net6.Controllers
 {
@@ -46,6 +47,7 @@ namespace ASP_FinalExam_Net6.Controllers
         }
 
         // GET: Departments/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["Id"] = new SelectList(_context.Set<Employee>(), "Id", "Name");
@@ -70,6 +72,7 @@ namespace ASP_FinalExam_Net6.Controllers
         }
 
         // GET: Departments/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Department == null)
