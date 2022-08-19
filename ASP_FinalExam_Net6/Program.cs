@@ -14,6 +14,13 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = "6408312574-1nk5da9kvplddtal6be0c94ea1ipg97f.apps.googleusercontent.com";
+    googleOptions.ClientSecret = "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";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
